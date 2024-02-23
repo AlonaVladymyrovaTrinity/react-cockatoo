@@ -7,10 +7,8 @@ const API_ENDPOINT_TABLES = `https://api.airtable.com/v0/meta/bases/${process.en
 //GET Items from todo list.Function getTodoList does the following:
 //Using Fetch API, GET table records from Airtable for the given tableName
 export const getTodoList = async (setTodoList, setIsLoading, tableName) => {
-  // console.log(tableName);
   await fetch(
     `${API_ENDPOINT}/${tableName}`,
-    //`${API_ENDPOINT}/Todo%20list`,
     // ?sort[0][field]=Title&sort[0][direction]=asc`,
     // ?view=Grid%20view&sort[0][field]=done&sort[0][direction]=asc
     {
