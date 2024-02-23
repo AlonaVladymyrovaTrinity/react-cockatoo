@@ -7,14 +7,17 @@ const API_ENDPOINT_TABLES = `https://api.airtable.com/v0/meta/bases/${process.en
 //GET Items from todo list.Function getTodoList does the following:
 //Using Fetch API, GET table records from Airtable for the given tableName
 export const getTodoList = async (setTodoList, setIsLoading, tableName) => {
+  // console.log(tableName);
   await fetch(
     `${API_ENDPOINT}/${tableName}`,
+    //`${API_ENDPOINT}/Todo%20list`,
     // ?sort[0][field]=Title&sort[0][direction]=asc`,
     // ?view=Grid%20view&sort[0][field]=done&sort[0][direction]=asc
     {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+        //Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_PERSONAL_ACCESS_TOKEN_GET_DATA_FROM_TABLE}`,
         // 'Cache-Control': 'no-cache',
         'Content-Type': 'application/json',
         // SameSite: 'None',
@@ -61,7 +64,8 @@ export const addTodo = async (
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+      //Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+      Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_PERSONAL_ACCESS_TOKEN_CREATE_EDIT_DELETE_DATA_FROM_TABLE}`,
     },
     body: JSON.stringify({
       records: [
@@ -116,7 +120,8 @@ export const removeTodo = async (
     await fetch(`${API_ENDPOINT}/${tableName}/${id}`, {
       method: 'DELETE',
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+        //Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_PERSONAL_ACCESS_TOKEN_CREATE_EDIT_DELETE_DATA_FROM_TABLE}`,
       },
     })
       //Response is being parsed as JSON using the response.json() method
@@ -177,7 +182,8 @@ export const updateAirtableRecord = async (id, fields, tableName) => {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+      //Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+      Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_PERSONAL_ACCESS_TOKEN_CREATE_EDIT_DELETE_DATA_FROM_TABLE}`,
       // 'Cache-Control': 'no-cache',
       // SameSite: 'None',
       // Secure: true,
