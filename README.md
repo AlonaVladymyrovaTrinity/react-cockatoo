@@ -9,7 +9,7 @@ To get started with this app, you'll need to do a few things:
 1. Clone this repository to your local machine
 2. Create a new Airtable account if you don't already have one
 3. Create a new Airtable base for your tasks
-4. Update the `.env` file with your Airtable API key and base ID
+4. Update the `.env` file with your Airtable Personal Access Tokens and base ID
 
 Once you've done that, you can run the app locally using the following commands:
 
@@ -24,9 +24,17 @@ This will start a development server at `http://localhost:3000/` where you can v
 
 This Todo app comes with the following features:
 
-- Add new tasks
+- Create a new to-do list
+- Add task list to to-do list
+- Edit tasks
+- Deleting tasks
 - Mark tasks as completed
-- Delete tasks
+- Sorting the list of tasks according to different criteria
+
+---
+
+- create notes
+- delete notes
 
 ## Technologies Used
 
